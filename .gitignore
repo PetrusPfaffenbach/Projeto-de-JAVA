@@ -1,0 +1,32 @@
+# Compilados do Java
+*.class
+*.log
+
+# Configurações locais do VS Code
+.vscode/
+
+#Configurações do Eclipse
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+.usertasks
+.releng
+.localHistory
+.settings/
+.classpath
+.project
+
+# Configurações do NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Arquivos de dados locais (opcional: se não quiser que os testes de saldos fiquem se chocando)
+# data/contas.txt
+files.txt
