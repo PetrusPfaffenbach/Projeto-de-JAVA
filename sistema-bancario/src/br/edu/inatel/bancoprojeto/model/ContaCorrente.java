@@ -1,8 +1,12 @@
 package br.edu.inatel.bancoprojeto.model;
 
-import java.sql.SQLOutput;
+public class ContaCorrente implements Tributavel {
 
-public class ContaCorrente {
+    @Override
+    public double calcularTributos() {
+        // Exemplo: O imposto é 1% do saldo da conta corrente
+        return this.getSaldo() * 0.01; 
+    }
 
     private String numeroConta;
     private String nomeTitular;
@@ -46,6 +50,8 @@ public class ContaCorrente {
         System.out.println("Valor do depósito inválido!");
         return false;
     }
+
+    
 
     //Sacando valor da conta
     public boolean sacar(double valor) {
