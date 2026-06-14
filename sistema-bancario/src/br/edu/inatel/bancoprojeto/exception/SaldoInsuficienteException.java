@@ -1,5 +1,8 @@
 package br.edu.inatel.bancoprojeto.exception;
 
-public class SaldoInsuficienteException {
-
+public class SaldoInsuficienteException extends Exception {
+    
+    public SaldoInsuficienteException(String mensagem) {
+        super(mensagem);
+    }
 }
