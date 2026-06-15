@@ -1,17 +1,12 @@
 package br.edu.inatel.bancoprojeto.model;
 
-public class ContaCorrente implements Tributavel {
+public class ContaCorrente extends Conta implements Tributavel {
 
     @Override
     public double calcularTributos() {
         // Exemplo: O imposto é 1% do saldo da conta corrente
-        return this.getSaldo() * 0.01; 
+        return this.saldo * 0.01;
     }
-
-    private String numeroConta;
-    private String nomeTitular;
-    private double limite;
-    private double saldo;
 
     // Iniciando a conta com valores
     public ContaCorrente(String numeroConta, String nomeTitular, double limite, double saldo) {
