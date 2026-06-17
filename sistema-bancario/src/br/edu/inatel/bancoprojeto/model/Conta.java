@@ -1,5 +1,7 @@
 package br.edu.inatel.bancoprojeto.model;
 
+import br.edu.inatel.bancoprojeto.exception.SaldoInsuficienteException;
+
 public abstract class Conta {
 
     protected String numeroConta;
@@ -8,16 +10,15 @@ public abstract class Conta {
     protected double saldo;
     private int numero;
 
-    public boolean sacar(double quantia) {
-        if(this.saldo >= quantia) {
-            this.saldo -= quantia;
-            System.out.println("Saque realizado com suceso");
-            return true;
-        } else {
-            System.out.println("Saldo insuficiente");
-            return false;
-        }
+    public void sacar(double quantia) throws SaldoInsuficienteException {
+    if(this.saldo >= quantia) {
+        this.saldo -= quantia;
+        System.out.println("Saque realizado com sucesso!");
+    } else {
+        // Lança a tua exceção personalizada
+        throw new SaldoInsuficienteException("Saldo insuficiente para efetuar o saque de R$ " + quantia);
     }
+}
 
     public boolean depositar(double quantia) {
         if(quantia > 0) {

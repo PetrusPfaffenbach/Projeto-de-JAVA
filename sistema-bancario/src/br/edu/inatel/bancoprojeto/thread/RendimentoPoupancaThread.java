@@ -6,7 +6,6 @@ public class RendimentoPoupancaThread implements Runnable {
 
     private ContaPoupanca conta;
 
-
     public RendimentoPoupancaThread(ContaPoupanca conta) {
         this.conta = conta;
     }
@@ -19,11 +18,11 @@ public class RendimentoPoupancaThread implements Runnable {
                 
                 double rendimento = conta.aplicarRendimento();
                 if (rendimento > 0) {
-                    System.out.println("[RENDIMENTO] R$ " + String.format("%.2f", rendimento) + 
-                                       " aplicado na Conta Poupança " + conta.getNumero());
+                    System.out.println("\n[RENDIMENTO] R$ " + String.format("%.2f", rendimento) + 
+                                       " aplicado na Conta Poupança " + conta.getNumeroConta());
                 }
             } catch (InterruptedException e) {
-                System.out.println("[RENDIMENTO] Aplicação de rendimentos interrompida para a conta " + conta.getNumero());
+                System.out.println("[RENDIMENTO] Aplicação de rendimentos interrompida para a conta " + conta.getNumeroConta());
                 break;
             }
         }

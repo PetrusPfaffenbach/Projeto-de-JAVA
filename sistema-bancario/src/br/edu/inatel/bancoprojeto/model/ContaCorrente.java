@@ -1,5 +1,7 @@
 package br.edu.inatel.bancoprojeto.model;
 
+import br.edu.inatel.bancoprojeto.exception.SaldoInsuficienteException;
+
 public class ContaCorrente extends Conta implements Tributavel {
 
     @Override
@@ -48,26 +50,22 @@ public class ContaCorrente extends Conta implements Tributavel {
 
     
 
-    //Sacando valor da conta
-    public boolean sacar(double valor) {
-        if ( valor <= this.getSaldoTotal ()) {
+    
+    @Override
+    public void sacar(double valor) throws SaldoInsuficienteException {
+        if (valor <= this.getSaldoTotal()) {
             this.saldo -= valor;
-            System.out.println("saque de R$: " + valor + " Realizado com sucesso!!");
-            return true;
+            System.out.println("Saque de R$: " + valor + " realizado com sucesso!!");
+        } else {
+            throw new SaldoInsuficienteException("Saldo e limite insuficientes para o saque de R$ " + valor);
         }
-        System.out.println("Saldo insuficiente!");
-        return false;
     }
 
-    //Transferindo valor
-    public boolean transferir(ContaCorrente contaDestino, double valor) {
-        if (this.sacar(valor)) {
-            contaDestino.depositar(valor);
-            System.out.println("Transferencia realizada com sucesso!!");
-            return true;
-        }
-        System.out.println("Falha na transferência: Saldo insuficiente!");
-        return false;
 
+    public boolean transferir(ContaCorrente contaDestino, double valor) throws SaldoInsuficienteException {
+        this.sacar(valor); 
+        contaDestino.depositar(valor);
+        System.out.println("Transferência realizada com sucesso!!");
+        return true;
     }
 }
