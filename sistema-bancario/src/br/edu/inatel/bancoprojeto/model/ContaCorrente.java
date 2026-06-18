@@ -40,7 +40,7 @@ public class ContaCorrente extends Conta implements Tributavel {
     public boolean depositar(double valor) {
         if (valor > 0) {
             this.saldo += valor;
-            System.out.println("Depósito de R$: " + this.saldo + " Realizado com sucesso!!");
+            System.out.println("Depósito Realizado com sucesso!! o seu saldo é de: " + this.saldo);
             return true;
         }
         System.out.println("Valor do depósito inválido!");
