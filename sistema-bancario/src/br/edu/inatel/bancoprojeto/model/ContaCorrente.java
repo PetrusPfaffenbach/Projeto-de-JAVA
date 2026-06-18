@@ -47,11 +47,6 @@ public class ContaCorrente extends Conta implements Tributavel {
         System.out.println("Valor do depósito inválido!");
         return false;
     }
-
-    
-
-    
-    @Override
     public void sacar(double valor) throws SaldoInsuficienteException {
         if (valor <= this.getSaldoTotal()) {
             this.saldo -= valor;
