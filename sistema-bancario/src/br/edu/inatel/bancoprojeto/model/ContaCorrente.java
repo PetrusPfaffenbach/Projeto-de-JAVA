@@ -11,10 +11,9 @@ public class ContaCorrente extends Conta implements Tributavel {
     }
 
     // Iniciando a conta com valores
-    public ContaCorrente(String numeroConta, String nomeTitular, double limite, double saldo) {
+    public ContaCorrente(String numeroConta, String nomeTitular, double saldo) {
         this.numeroConta = numeroConta;
         this.nomeTitular = nomeTitular;
-        this.limite = limite;
         this.saldo = saldo;
     }
 
